@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Time of Day</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <style>
+		* {padding:0; margin:0;}
+		html {background-color:#ccc;}
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			max-width:960px; /* keeps from getting too large on wide screen */
+			width:90%; /* shrink to fit screen */
+			margin:auto; /* center in html element */
+			background-color:#fff;
+			padding:20px;
+			min-height:100%; /* keeps from getting too large on wide screen */
+			}
+		img.flexible {
+			float:right;
+			display:inline-block;
+			padding:20px;
+			max-width:300px; /* actual size of image */
+			width:33%; /* approximate size taken on screen in maximum view */
+		}
+		p {margin:10px;}
+		h1,h2,h3,h4,h5,h6{
+			font-weight:normal;
+			margin:10px;
+			}
+		h1.masthead {margin-top:0;}
+		footer {
+			text-align:center;
+			clear:both; /* ride below all items */
+			}
+		nav{
+			text-align:center; /* centers the nav */
+		}
+		
+		nav ul {
+				list-style:none; /* removes the bullets */
+			}
+		nav ul li
+			{
+				display:inline-block; /* makes horizontal, but able to declare margins */
+				margin:0 2%; /* margin left-right, gets smaller as necessary */
+			}
+		nav a:hover{
+			text-decoration: none;
+		}	
+    </style>
+</head>
+<body>
+	<header>
+		<h1 class="masthead">Time of Day</h1>
+
+	</header>
+    <main>
+	 <header>
+		 <h3>A JavaScript project by ABIGAIL DOMINGUEZ</h3>
+		 <h3 id="greeting">Greeting goes Here</h3>
+	</header>
+	 <p>This page with contain the time and day</p>
+	 <p>It was creatded to greet you during any time of the day. It will great you depending the time of the day</p>
+	 <p>The picture will change depeding the time</p>
+	 <p>The background will change depending the time Orange for the Morning, Yellow for the Afternoon, Red for the Evening, and Blue fro the NIght </p>
+	 <p>We use if and else condition to change the greeting time.</p>
+	  <img id="pic" src="images/afternoon.jpg" alt="Time of Day Image" class="flexible" />
+     <footer>
+      <p><small>&copy; 2021-<span id="copyright"></span> by 
+          ABIGAIL DOMINGUEZ, All Rights Reserved ~ 
+          <a id="html-checker" href="#">Check HTML</a> ~ 
+          <a id="css-checker" href="#">Check CSS</a></small>
+     </p>
+    </footer>
+  </main>
+ <script>
+
+
+
+	/*
+
+	Morging (5am to 12 noon)
+	Afternoon (12 noon to 6pm)
+	Evening (6pm to 11pm)
+	Night (11pm to 5am)
+
+	*/
+
+
+	let myDate = new Date();
+	let myCopyright = myDate.getFullYear();
+	let myHour = myDate.getHours();
+	//let myDay = myDay.getDay();
+	let myGreeting = "";
+	let myColor = "";
+	let myPic = "";
+
+	/*if(myHour < 12){//morning
+		//alert("Good Morning")
+		myGreeting = "Good Morning";
+		myColor = "orange";
+		myPic = "morning.jpg";
+	}else{//afternoon
+		//alert("Good Afernoon")
+		myGreeting = "Good Afternoon";
+		myColor = "yellow";
+		myPic = "afternoon.jpg";
+	}*/
+	
+	if (myHour > 5 && myHour < 12){//good morning
+		myGreeting = "Good Morning";
+		myColor = "orange";
+		myPic = "morning.jpg";
+	}else if (myHour > 12 && myHour< 18){//good afternoon
+		myGreeting = "Good Afternoon";
+		myColor = "yellow";
+		myPic = "afternoon.jpg";
+	}else if (myHour >= 18 && myHour < 23){//Good evening
+		myGreeting = "Good Evening";
+		myColor = "red";
+		myPic = "evening.jpg";
+	}else{
+		myGreeting = "Good Night";
+		myColor = "blue";
+		myPic = "night.jpg";
+	}
+
+	//the pic needs images/ in order to work
+	myPic = "images/" + myPic;
+
+	//alert(myCopyright);
+	//console.log(myCopyright);
+	document.getElementById("copyright").innerHTML = myCopyright;
+	document.getElementById("greeting").innerHTML = myGreeting;
+	document.querySelector("html").style.backgroundColor = myColor;
+	document.getElementById("pic").src = myPic;
+	//document.getElementById("day").innerHTML = myDay;
+
+
+    //https://tinyurl.com/dynamic-html-checker
+    document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
+     
+    document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
+ </script>
+</body>
+</html>
