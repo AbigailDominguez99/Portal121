@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script>
+        let num = Math.floor(Math.random() * 11);
+        let guess = prompt("guess a number between 1 and 100");
+        let gotIt = false;
+        let numGuesses = 0;
+           
+        while(gotIt === false){
+            numGuesses++;
+            if(num == guess)
+            {
+                //alert("Got it!");
+                gotIt = true;//break out of loop
+            }else{//continue, since answer is incorrect!
+
+
+            if(num > guess){//higher!
+                guess = prompt("higher");
+
+            }else{//lower!
+
+
+            if(num < guess){//lower!
+                guess = prompt("lower");
+
+            }else{//higher!    
+            }
+            }
+        
+
+               guess = prompt("guess again!");
+            }
+
+        }
+
+        alert("Got it! You guessed " + numGuesses + " times!");
+        //alert("Sorry!  You guessed " + guess + " add the number was " + num);
+
+	</script>
+</body>
+</html>
